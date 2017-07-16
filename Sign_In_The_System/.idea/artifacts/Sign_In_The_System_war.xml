@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="Sign_In_The_System:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Sign_In_The_System.war">
+      <element id="artifact" artifact-name="Sign_In_The_System:war exploded" />
+    </root>
+  </artifact>
+</component>
