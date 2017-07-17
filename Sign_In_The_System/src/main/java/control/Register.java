@@ -35,7 +35,7 @@ public class Register extends HttpServlet{
         String studentId= new String(request.getParameter("studentid").getBytes(
                 "iso-8859-1"), "utf-8");
 
-        if (username == null || username.equals("USERNAME") || studentId.length() < 8) {
+        if (username == null || studentId == null || username.equals("USERNAME") || studentId.equals("STUDENT ID") || studentId.length() < 8) {
             resultInfo = "您输入的用户名或学号有错，请重新输入进行注册！";
             request.setAttribute("result", resultInfo);
             request.getRequestDispatcher(Result_VIEW).forward(request, response);

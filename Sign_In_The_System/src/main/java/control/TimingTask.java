@@ -26,9 +26,9 @@ public class TimingTask {
 
         //真正执行的任务并不是Job接口的实例，而是用反射的方式实例化的一个JobDetail实例
         JobDetail job = newJob(MyTimeJob.class).withIdentity("job1", "group1").build();
-        // 定义一个触发器，job 1将每隔执行一次
+        // 定义一个触发器，job 1将每天6点执行一次
         CronTrigger trigger = newTrigger().withIdentity("trigger1", "group1").
-                withSchedule(cronSchedule("00 00 06 * * ?")).build();
+                withSchedule(cronSchedule("00 00 11 * * ?")).build();
 
         //执行任务和触发器
         Date ft = sched.scheduleJob(job, trigger);

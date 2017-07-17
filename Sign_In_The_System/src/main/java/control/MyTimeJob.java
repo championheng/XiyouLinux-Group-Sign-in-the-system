@@ -19,9 +19,12 @@ public class MyTimeJob implements Job {
             Connection connection = DBUtils.getConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "UPDATE student_message SET status = 'false'");
-            ResultSet resultSet = null;
-
             statement.execute();
+
+            statement = connection.prepareStatement("TRUNCATE student_SignIN");
+            statement.execute();
+
+            ResultSet resultSet = null;
 
             DBUtils.close(resultSet, statement, connection);
         } catch (SQLException e) {

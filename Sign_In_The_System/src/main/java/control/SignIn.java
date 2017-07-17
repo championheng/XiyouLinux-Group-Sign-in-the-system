@@ -55,7 +55,7 @@ public class SignIn extends HttpServlet {
             }
 
         } else {
-            resultInfo = "当前学号尚未注册，请返回签到页面进行注册之后进行登录！";
+            resultInfo = "当前学号尚未注册，请返回签到页面进行注册之后进行签到！";
             request.setAttribute("result", resultInfo);
             request.getRequestDispatcher(ERROR_VIEW).forward(request, response);
         }
@@ -83,7 +83,7 @@ public class SignIn extends HttpServlet {
         return false;
     }
 
-    private String getCurrentTime() {
+    public static String getCurrentTime() {
         Calendar now = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

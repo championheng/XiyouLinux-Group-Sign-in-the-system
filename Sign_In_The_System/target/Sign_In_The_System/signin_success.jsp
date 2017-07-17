@@ -1,4 +1,5 @@
 <%@ page import="model.DBUtils" %>
+<%@ page import="control.SignIn" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
@@ -77,24 +78,26 @@
         <tbody>
         <%
             try {
+                int i = 1;
                 Connection connection = DBUtils.getConnection();
                 PreparedStatement statement = connection.prepareStatement(
                         "SELECT * FROM student_SignIN");
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
+
         %>
 
         <tr class="success">
-            <td><%= resultSet.getString(1)%></td>
+            <td><%= i%></td>
             <td><%= resultSet.getString(3)%></td>
             <td><%= resultSet.getString(2)%></td>
             <td><%= resultSet.getString(4)%></td>
         </tr>
 
         <%
+                    i++;
                 }
-
                 DBUtils.close(resultSet, statement, connection);
             } catch (SQLException e) {
                 e.printStackTrace();
